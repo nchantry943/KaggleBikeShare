@@ -22,3 +22,4 @@ pois_sub <- bike_pois_pred |>
   mutate(datetime = as.character(format(datetime)))
 
 vroom_write(x=pois_sub, file = "./PoisPreds.csv", delim=",")
+

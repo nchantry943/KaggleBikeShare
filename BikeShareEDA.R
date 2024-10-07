@@ -4,9 +4,12 @@ library(DataExplorer)
 library(patchwork)
 library(GGally)
 library(car)
+library(vroom)
 
+## Upload Data
 train <- vroom('train.csv')
 
+## EDA
 corrplot <- DataExplorer::plot_correlation(train)
 glimpse(train)
 
@@ -36,5 +39,6 @@ temp <- ggplot(data = train, mapping = aes(x = temp, y = count)) +
   geom_smooth(se = FALSE)
 temp
 (corrplot + weather) / (gg_vif + temp)
+
 
 
